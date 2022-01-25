@@ -1,0 +1,141 @@
+/* IMPORTS */
+
+@import url("common/navbar.css");
+@import url("home/index.css");
+@import url("home/contacts.css");
+@import url("home/about.css");
+@import url("profiles/sign-up.css");
+@import url("profiles/sign-in.css");
+@import url("diseases/categories.css");
+@import url("diseases/diseases-by-category.css");
+@import url("diseases/disease.css");
+@import url("flashcards/flashcards.css");
+@import url("flashcards/create-flashcard.css");
+@import url("flashcards/practise-flashcards.css");
+@import url("common/common.css");
+@import url("common/animations.css");
+
+
+/* CUSTOM VARIABLES */
+
+:root {
+    /* PRIMARY COLORS */
+    --dark-blue: #015277;
+    --medium-blue: #0093b7;
+    --light-blue: #a0c5cf;
+    --white: #e6eceb;
+    --turquoise: #63cdd7;
+    --primary: #d0e0e2;
+
+    /* SECONDARY COLORS */
+    --white-opacity: rgba(255, 255, 255, .7);
+    --black: #333;
+    --alert: #f44336;
+
+    /* FONTS */
+    --body-font: "Roboto", sans-serif;
+    --body-font-size: 10px;
+}
+
+/* END CUSTOM VARIABLE*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    background-image: linear-gradient(to left, var(--light-blue), var(--white));
+    min-height: 100vh;
+}
+
+a.disabled {
+    pointer-events: none;
+    text-decoration: line-through;
+}
+
+html {
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+}
+
+
+/* RESPONSIVENESS */
+/* TODO: ADD RESPONSIVE CONFIGURATION */
+@media (max-width: 991px) {
+    .contact {
+        padding: 5rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container .contactInfo {
+        margin-bottom: 4rem;
+    }
+
+    .container .contactInfo,
+    .contactForm {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav ul {
+        position: relative;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--light-blue);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        transform: translateX(100%);
+        transition: transform .5s ease-in;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    /* END NAVBAR */
+    /* HEADER */
+    .index-image {
+        display: none;
+    }
+
+    /* END HEADER */
+
+}
+
+.nav-active {
+    transform: translateX(0);
+}
+
+

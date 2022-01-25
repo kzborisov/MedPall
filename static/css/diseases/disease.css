@@ -1,0 +1,64 @@
+.disease-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background: var(--white);
+    min-height: 50rem;
+    max-width: 70%;
+    min-width: 70%;
+    border-radius: .5rem;
+    box-shadow: -0.5rem -0.5rem 5rem rgba(0, 0, 0, 0.7);
+}
+
+.disease-container h3 {
+    font-size: 2.2rem;
+    background: -webkit-linear-gradient(var(--medium-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0;
+}
+
+.disease-symptoms {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 50%;
+}
+
+.disease-symptoms p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.disease-description {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    max-height: 30rem;
+    overflow-y: auto;
+}
+
+.disease-description p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1rem 3rem;
+    word-wrap: break-word;
+}
+
+.btn {
+    min-width: 12rem;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1.2rem 2.6rem;
+    margin: 3rem;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    backface-visibility: hidden;
+}

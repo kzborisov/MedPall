@@ -1,0 +1,116 @@
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.2s ease-in-out;
+    backface-visibility: hidden;
+}
+
+.nav-scrolled {
+    background: var(--light-blue);
+    color: var(--white);
+}
+
+.nav-scrolled .nav-links a {
+    color: var(--dark-blue);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo p {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    letter-spacing: .1rem;
+    margin-left: 2rem;
+}
+
+
+.logo a {
+    color: var(--dark-blue);
+    text-decoration: none;
+    letter-spacing: .2rem;
+    font-size: 3.5rem;
+}
+
+nav a {
+    transition: color .2s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--medium-blue);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    z-index: 10000;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+
+.nav-links a {
+    color: var(--dark-blue);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    bottom: -0.4rem;
+    left: -0.4rem;
+    width: 0;
+    height: .2rem;
+    background: var(--medium-blue);
+    transition: all .2s ease-in-out;
+}
+
+.nav-links a:hover:before {
+    width: 108%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 2.5rem;
+    height: .2rem;
+    background-color: var(--dark-blue);
+    margin: .5rem;
+    transition: all .3s ease;
+}
+
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}

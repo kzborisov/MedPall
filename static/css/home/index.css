@@ -1,0 +1,196 @@
+
+header {
+    height: 100vh;
+}
+
+.wrapper {
+    background-image: linear-gradient(to left, var(--light-blue), var(--white));
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.heading-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.heading-primary {
+    position: relative;
+    width: 70%;
+}
+
+.heading-box h1 {
+    font-size: 17rem;
+    letter-spacing: 3px;
+    color: var(--dark-blue);
+}
+
+.heading-box h1 span {
+    color: var(--turquoise);
+}
+
+.heading-secondary {
+    width: 65%;
+}
+
+.heading-box h3 {
+    background: -webkit-linear-gradient(var(--medium-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-weight: bold;
+    opacity: 0;
+    animation: moveInLeft 1.5s ease-in-out forwards;
+    animation-iteration-count: 1;
+    text-transform: capitalize;
+}
+
+.heading-box p {
+    color: var(--dark-blue);
+    font-size: 2rem;
+    opacity: 0;
+    animation: moveInLeft 1.5s ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: .5s;
+    text-transform: capitalize;
+}
+
+.index-image {
+    background-image: url(../../images/stethoscope.jpg);
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 100%;
+    mix-blend-mode: darken;
+}
+
+
+.buttons-box {
+    width: 40%;
+    min-height: 12rem;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    justify-content: flex-start;
+    animation: moveInLeft 1.3s ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1.2s;
+}
+
+.buttons-box a {
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    font-size: 3.5rem;
+    backface-visibility: hidden;
+}
+
+.buttons-box a:hover {
+    background: var(--medium-blue);
+    color: var(--dark-blue);
+}
+
+.buttons-box .btn {
+    min-width: 12rem;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1.2rem 2.6rem;
+    margin: 1rem;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+
+/* SEARCH FORM */
+
+.search-form {
+    width: 65%;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 3rem;
+    opacity: 0;
+    animation: moveInLeft 1.5s ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1.2s;
+}
+
+.search-form .search-input {
+    width: 85%;
+    height: 4rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.search-btn {
+    background: var(--dark-blue);
+    width: 4rem;
+    height: 4rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    position: relative;
+    border: none;
+}
+
+.search-btn .fa {
+    color: var(--white)
+}
+
+/* The alert message box */
+.alert {
+    padding: 2rem;
+    background-color: var(--alert);
+    color: var(--white);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 60%;
+    max-width: 60%;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    justify-content: space-between;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: .5s;
+}
+
+.alert ul li {
+    font-size: 1.4rem;
+    list-style: none;
+    font-weight: bold;
+}
+
+.close-btn {
+    margin-left: 1.5rem;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 2.2rem;
+    line-height: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--black);
+}
+
+
+/* END SEARCH FORM */
+
+

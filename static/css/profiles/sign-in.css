@@ -1,0 +1,87 @@
+.sign-in {
+    position: relative;
+    min-height: 100vh;
+    padding: 5rem 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-in .content {
+    max-width: 80rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.sign-in .content h2 {
+    font-size: 3.6rem;
+    font-weight: bold;
+    /*color: var(--dark-blue);*/
+    background: -webkit-linear-gradient(var(--medium-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contactForm .inputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    padding: .5rem 0;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    border: none;
+    border-bottom: 2px solid var(--medium-blue);
+    outline: none;
+    resize: none;
+}
+
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: .5rem 0;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    pointer-events: none;
+    transition: .5s;
+    color: #666;
+}
+
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span {
+    /*color: #e91e63;*/
+    color: var(--dark-blue);
+    font-size: 1.3rem;
+    transform: translateY(-2rem);
+}
+
+.contactForm .inputBox input[type="submit"] {
+    width: 10rem;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+}
+
+.contactForm .inputBox input[type="submit"]:hover {
+    background: var(--medium-blue);
+    color: var(--dark-blue);
+}
+
+.contactForm .inputBox:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

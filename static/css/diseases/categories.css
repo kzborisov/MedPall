@@ -1,0 +1,21 @@
+.category-btn {
+    white-space: nowrap;
+    text-align: center;
+    margin: 1rem;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+}
+
+
+#categories .card {
+    border-radius: .5rem;
+    padding: 6rem 5rem;
+    box-shadow: 0.5rem 0.5rem 1.3rem rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
