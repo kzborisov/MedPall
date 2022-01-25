@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Med Pall | Category {{ disease.name }}{% endblock %}
+
+{% block content %}
+    <section id="disease" class="section-container">
+        <div class="content">
+            <h2>{{ disease.name }}</h2>
+        </div>
+
+        <div class="disease-container">
+            <div class="disease-symptoms">
+                <h3>Symptoms</h3>
+                <p>{{ symptoms }}</p>
+            </div>
+            <div class="disease-description">
+                <h3>Description</h3>
+                <p>{{ disease.description }}</p>
+            </div>
+        </div>
+        <a href="{{ request.META.HTTP_REFERER|escape }}" class="btn btn-hover">Back</a>
+    </section>
+{% endblock %}

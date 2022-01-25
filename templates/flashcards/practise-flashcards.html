@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Med Pall | Practise Flashcards{% endblock %}
+
+{% block content %}
+    <section id="create-flashcard" class="section-container">
+        <div class="content">
+            <h2>Practise</h2>
+            <p>Click to reveal</p>
+        </div>
+
+        {% if random_flashcard %}
+            <div class="container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p>{{ random_flashcard.description }}</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>{{ random_flashcard.name }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <a href="{% url 'flashcards' %}" class="btn btn-hover">Back</a>
+                <a href="{% url 'practise' %}" class="btn btn-hover">Next</a>
+            </div>
+        {% else %}
+            <h3>You don't have any flashcards</h3>
+            <h2>Add now?</h2>
+            <a href="{% url 'create' %}" class="btn btn-hover">Add</a>
+        {% endif %}
+
+    </section>
+{% endblock %}

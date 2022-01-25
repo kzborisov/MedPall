@@ -1,0 +1,63 @@
+{% extends "common/base.html" %}
+{% block title %}Med Pall | About{% endblock %}
+
+{% block content %}
+    <section id="about" class="section-container">
+        <div class="container">
+            <h2>Mandatory requirements</h2>
+            <ul>
+                <li style="text-decoration: line-through">The application must be implemented using Django Framework</li>
+                <li>The application must have at least 10 endpoints</li>
+                <li style="text-decoration: line-through">The application must have login/register functionality</li>
+                <li style="text-decoration: line-through">The application must have public part (A part of the website, which is accessible by everyone –
+                    un/authenticated users and admins)
+                </li>
+                <li style="text-decoration: line-through">The application must have private part (accessible only by authenticated user and admins)</li>
+                <li style="text-decoration: line-through">The application must have admin part (accessible only to admins)</li>
+                <li style="text-decoration: line-through">Unauthenticated users (public part) have only 'get' permissions e.g., landing page, details, about
+                    page
+                </li>
+                <li style="text-decoration: line-through">Authenticated users (private part) have full CRUD for all their created content</li>
+                <li style="text-decoration: line-through"> Admins have full CRUD functionalities</li>
+                <li style="text-decoration: line-through"> Form validations</li>
+                <li>To avoid crashes, implement Error Handling and Data Validations</li>
+                <li>Use PostgreSQL as a database.</li>
+                <li>Write tests for at least 60% coverage on your business logic</li>
+                <li style="text-decoration: line-through">Templates (your controllers/views must return HTML files) – one and the same template could be
+                    re-used/used multiple times (with the according adjustments, if such needed)
+                </li>
+                <li>Use a source control system by choice – Github or Gitlab. You must have at least 5 commits +
+                    README
+                </li>
+            </ul>
+
+            <h2>Bonuses</h2>
+            <ul>
+                <li>Responsive web design</li>
+                <li>Class-based views</li>
+                <li>Extended Django user</li>
+                <li>Documentation/ Swagger</li>
+                <li>Use a file storage cloud API e.g., Cloudinary, Dropbox, Google Drive or other for storing the
+                    files
+                </li>
+                <li>Implement Microservice architecture in your application.</li>
+                <li>Additional functionality, not explicitly described in this section, will be counted as a bonus if it
+                    has
+                    practical usage.
+                </li>
+                                <li>Responsive web design</li>
+                <li>Class-based views</li>
+                <li>Extended Django user</li>
+                <li>Documentation/ Swagger</li>
+                <li>Use a file storage cloud API e.g., Cloudinary, Dropbox, Google Drive or other for storing the
+                    files
+                </li>
+                <li>Implement Microservice architecture in your application.</li>
+                <li>Additional functionality, not explicitly described in this section, will be counted as a bonus if it
+                    has
+                    practical usage.
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

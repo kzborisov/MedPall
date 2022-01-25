@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/plus.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Med Pall{% endblock %}</title>
+</head>
+
+<body>
+
+{# NAVBAR #}
+{# TODO:Generate dynamic navbar #}
+
+{% if request.user.is_authenticated %}
+    <nav>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <i class="fa fa-plus-square"></i>
+            </a>
+            <p> Welcome back, {{ request.user }}</p>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'flashcards' %}">Flashcards</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' %}">Diseases</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            <li>
+                <a href="{% url 'contacts' %}">Contacts</a>
+            </li>
+            <li>
+                <a href="{% url 'sign out' %}">Log Out</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+{% else %}
+    <nav>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <i class="fa fa-plus-square"></i>
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            <li>
+                <a href="{% url 'contacts' %}">Contacts</a>
+            </li>
+            <li>
+                <a href="{% url 'sign in' %}">Log In</a>
+            </li>
+
+            <li>
+                <a href="{% url 'sign up' %}">Sing Up</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+{% endif %}
+
+{# END NAVBAR #}
+
+{# CONTENT #}
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+{# END CONTENT #}
+
+<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+
+</body>
+</html>

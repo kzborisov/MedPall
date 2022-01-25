@@ -1,0 +1,39 @@
+{% extends "common/base.html" %}
+{% block title %}Med Pall | Contacts{% endblock %}
+
+{% block content %}
+    <section id="contact" class="section-container">
+        <div class="content">
+            <h2>Have Some <span>Questions</span>?</h2>
+            <p>Feel free to contact us</p>
+        </div>
+        <div class="container">
+            <div class="contactForm">
+                <form method="POST" action="{% url 'contacts' %}">
+                    {% csrf_token %}
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        {{ form.full_name }}
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        {{ form.email }}
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        {{ form.subject }}
+                        <span>Subject</span>
+                    </div>
+                    <div class="inputBox">
+                        {{ form.message }}
+                        <span>Your message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

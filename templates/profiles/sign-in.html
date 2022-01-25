@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+{% block title %}Med Pall | Sing In{% endblock %}
+
+{% block content %}
+    <section class="sign-in">
+        <div class="content">
+            <h2>Sign In For Better Experience</h2>
+        </div>
+        <div class="container">
+            <div class="contactForm">
+                <form method="POST" action="{% url 'sign in' %}">
+                    {% csrf_token %}
+
+                    <h2>Sign In</h2>
+                    <div class="inputBox">
+                        {{ form.username }}
+                        <span>Username</span>
+                    </div>
+                    <div class="inputBox">
+                        {{ form.password }}
+                        <span>Password</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Sign In">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

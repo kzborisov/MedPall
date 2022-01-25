@@ -1,0 +1,36 @@
+{% extends "common/base.html" %}
+
+
+{% block content %}
+    <header>
+        <div class="wrapper">
+            <div class="heading-box">
+                <div class="heading-primary">
+                    <h1><span>Med</span>Pall</h1>
+                </div>
+                <div class="heading-secondary">
+                    <h3>Scientia ipsa potentia est</h3>
+                    <p>~ Knowledge itself is power</p>
+                </div>
+
+                {% if request.user.is_authenticated %}
+
+                    <form method="POST" action="{% url "search disease" %}" class="search-form">
+                        {% csrf_token %}
+                        {{ form.disease_name }}
+                        <button class="search-btn"><i class="fa fa-search"></i></button>
+                    </form>
+
+                {% else %}
+                    <div class="buttons-box">
+                        <a href="{% url 'sign in' %}" class="login btn">Log In</a>
+                        <a href="{% url 'sign up' %}" class="signup btn">Sign Up</a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="index-image"></div>
+        </div>
+    </header>
+
+{% endblock %}

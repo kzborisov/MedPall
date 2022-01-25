@@ -1,0 +1,28 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Med Pall | Category {{ category.name }}{% endblock %}
+
+{% block content %}
+    <section id="diseases" class="section-container">
+        <div class="content">
+            <h2>{{ category.name }} Diseases</h2>
+        </div>
+
+        {% if diseases %}
+            <div class="grid-container">
+                {% for disease in diseases %}
+                    <a href="{% url 'disease' disease.pk %}" class="disease-btn btn-hover">
+                        <div class="card">
+                            <div class="card__title">
+                                <h2>{{ disease.name }}</h2>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="no-diseases">No disease to show!</h3>
+        {% endif %}
+        <a href="{% url 'categories' %}" class="btn btn-hover">Back</a>
+    </section>
+{% endblock %}

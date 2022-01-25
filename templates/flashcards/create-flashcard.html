@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Med Pall | Create Flashcard{% endblock %}
+
+{% block content %}
+    <section id="create-flashcard" class="section-container">
+        <div class="content">
+            <h2>Create your Flashcard</h2>
+        </div>
+
+        <div class="container">
+            <div class="contactForm">
+                <form method="POST" action="{% url 'create' %}">
+                    {% csrf_token %}
+                    <div class="inputBox">
+                        {{ form.name }}
+                        <span>Disease Name</span>
+                    </div>
+                    <div class="inputBox">
+                        {{ form.description }}
+                        <span>Disease Description</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Save">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="{% url 'flashcards' %}" class="btn btn-hover">Back</a>
+    </section>
+{% endblock %}

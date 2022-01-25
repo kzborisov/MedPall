@@ -1,0 +1,17 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Med Pall | Flashcards{% endblock %}
+
+{% block content %}
+    <section id="flashcards" class="section-container">
+        <div class="content">
+            <h2>Flashcards</h2>
+            <p>Create or learn your custom flashcards that will help you succeed!</p>
+        </div>
+
+        <div class="flashcards-container">
+            <a href="{% url 'practise' %}" class="btn btn-hover">Practise</a>
+            <a href="{% url 'create' %}" class="btn btn-hover">Create</a>
+        </div>
+    </section>
+{% endblock %}
