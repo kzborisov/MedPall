@@ -15,12 +15,18 @@
 
                 {% if request.user.is_authenticated %}
 
-                    <form method="POST" action="{% url "search disease" %}" class="search-form">
+                    <form method="POST" action="{% url "home" %}" class="search-form">
                         {% csrf_token %}
                         {{ form.disease_name }}
                         <button class="search-btn"><i class="fa fa-search"></i></button>
                     </form>
 
+                    {% if form.errors %}
+                        <div class="alert">
+                            {{ form.disease_name.errors }}
+                            <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
+                    {% endif %}
                 {% else %}
                     <div class="buttons-box">
                         <a href="{% url 'sign in' %}" class="login btn">Log In</a>

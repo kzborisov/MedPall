@@ -1,14 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView, TemplateView, ListView
 
 from medPal.flashcards.models import Flashcard
 
 
-class FlashcardIndex(TemplateView):
+class FlashcardIndex(LoginRequiredMixin, TemplateView):
     template_name = 'flashcards/flashcards.html'
 
 
-class CreateFlashcardView(CreateView):
+class CreateFlashcardView(LoginRequiredMixin, CreateView):
     template_name = 'flashcards/create-flashcard.html'
     model = Flashcard
     fields = ['name', 'description']
@@ -20,11 +21,10 @@ class CreateFlashcardView(CreateView):
         return redirect('flashcards')
 
 
-class PractiseFlashcardView(ListView):
+class PractiseFlashcardView(LoginRequiredMixin, ListView):
     template_name = 'flashcards/practise-flashcards.html'
     model = Flashcard
     context_object_name = 'flashcard'
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -1,56 +1,35 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
 
 from medPal.diseases.models import Disease, Category
-from medPal.home.forms import SearchForm
 
 
-@login_required
-def categories(request):
-    context = {
-        'categories': Category.objects.all(),
-    }
-
-    return render(request, 'diseases/categories.html', context)
+class CategoriesView(LoginRequiredMixin, ListView):
+    model = Category
+    template_name = 'diseases/categories.html'
+    context_object_name = 'categories'
 
 
-@login_required
-def disease(request, pk):
-    disease = Disease.objects.get(pk=pk)
-    symptoms = ", ".join([str(d) for d in disease.symptoms.all()])
-    context = {
-        'disease': disease,
-        'symptoms': symptoms,
-    }
+class DiseaseView(LoginRequiredMixin, ListView):
+    model = Disease
+    template_name = 'diseases/disease.html'
 
-    return render(request, 'diseases/disease.html', context)
-
-
-@login_required
-def category(request, pk):
-    c = Category.objects.get(pk=pk)
-    d = Disease.objects.all().filter(category=pk)
-    context = {
-        'category': c,
-        'diseases': d,
-    }
-
-    return render(request, 'diseases/diseases-by-category.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['disease'] = Disease.objects.get(pk=self.kwargs['pk'])
+        context['symptoms'] = ", ".join(
+            [str(d) for d in context['disease'].symptoms.all()]
+        )
+        return context
 
 
-@login_required
-def search_disease(request):
-    if request.method == "POST":
-        form = SearchForm(request.POST)
+class CategoryView(LoginRequiredMixin, ListView):
+    model = Category
+    template_name = 'diseases/diseases-by-category.html'
 
-        if form.is_valid():
-            disease = Disease.objects.get(name=form.cleaned_data['disease_name'])
-            symptoms = ", ".join([str(d) for d in disease.symptoms.all()])
-            context = {
-                'disease': disease,
-                'symptoms': symptoms,
-            }
-
-            return render(request, 'diseases/disease.html', context)
-        else:
-            return redirect('home')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = Category.objects.get(pk=self.kwargs['pk'])
+        context['diseases'] = Disease.objects.all(). \
+            filter(category=self.kwargs['pk'])
+        return context

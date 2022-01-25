@@ -1,56 +1,34 @@
-from django.core.mail import send_mail
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, FormView
 
+from medPal.diseases.models import Disease
 from medPal.home.forms import ContactsForm, SearchForm
 
 
-def home(request):
-    if request.method == 'POSt':
-        form = SearchForm(request.POST)
-    else:
-        form = SearchForm()
+class HomeView(FormView):
+    template_name = 'home/index.html'
+    form_class = SearchForm
 
-    context = {
-        'form': form,
-    }
-    return render(request, 'home/index.html', context)
-
-
-def about(request):
-    return render(request, 'home/about.html')
+    def form_valid(self, form):
+        disease_name = form.cleaned_data['disease_name']
+        disease = Disease.objects.get(name=disease_name)
+        context = {
+            'disease': disease,
+            'symptoms': ", ".join([str(d) for d in disease.symptoms.all()]),
+        }
+        return render(self.request, 'diseases/disease.html', context)
 
 
-def contacts(request):
-    if request.method == 'POST':
-        form = ContactsForm(request.POST)
-        if form.is_valid():
-            subject = f"FROM: {form.cleaned_data['full_name']}: " + form.cleaned_data['subject']
-            send_mail(
-                subject,
-                form.cleaned_data['message'],
-                form.cleaned_data['email'],
-                ['med.pall.app@gmail.com'],
-                fail_silently=False,
-            )
-            send_mail(
-                '[MedPall] Support',
-                f"""
-                Dear {form.cleaned_data['full_name']},
-                
-                Thank you for your email!
-                We will get back to you as soon as possible!
-                
-                Best Regards,
-                MedPall Support
-                """,
-                form.cleaned_data['email'],
-                [form.cleaned_data['email']],
-                fail_silently=False,
-            )
-            return redirect('home')
-    else:
-        form = ContactsForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'home/contacts.html', context)
+class AboutView(TemplateView):
+    template_name = 'home/about.html'
+
+
+class ContactsView(FormView):
+    template_name = 'home/contacts.html'
+    form_class = ContactsForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.send_support_email()
+        return super().form_valid(form)

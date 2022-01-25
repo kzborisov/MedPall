@@ -10,7 +10,7 @@
 
         <div class="container">
             <div class="contactForm">
-                <form method="POST" action="{% url 'create' %}">
+                <form method="POST" action="{% url 'create flashcard' %}">
                     {% csrf_token %}
                     <div class="inputBox">
                         {{ form.name }}

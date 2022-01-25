@@ -1,10 +1,10 @@
 from django.urls import path
 
 from medPal.diseases import views
+from medPal.diseases.views import CategoriesView, DiseaseView, CategoryView
 
 urlpatterns = (
-    path('', views.categories, name='categories'),
-    path('category/<int:pk>', views.category, name='category'),
-    path('disease/<int:pk>', views.disease, name='disease'),
-    path('search/', views.search_disease, name='search disease'),
+    path('', CategoriesView.as_view(), name='categories'),
+    path('category/<int:pk>', CategoryView.as_view(), name='category'),
+    path('disease/<int:pk>', DiseaseView.as_view(), name='disease'),
 )

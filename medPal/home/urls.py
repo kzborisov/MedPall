@@ -1,9 +1,9 @@
 from django.urls import path
 
-from medPal.home import views
+from medPal.home.views import AboutView, HomeView, ContactsView
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('contacts/', views.contacts, name='contacts'),
+    path('', HomeView.as_view(), name='home'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contacts/', ContactsView.as_view(), name='contacts'),
 ]
