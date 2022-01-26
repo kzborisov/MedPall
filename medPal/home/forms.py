@@ -1,13 +1,7 @@
 from django import forms
 from django.core.mail import send_mail
 
-from medPal.diseases.models import Disease
-
-
-def disease_exists(name):
-    if Disease.objects.filter(name=name).exists():
-        return True
-    return False
+from medPal.home.validators import validate_disease_exists
 
 
 class ContactsForm(forms.Form):
@@ -55,10 +49,7 @@ class SearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={'class': 'search-input'}
         ),
+        validators=(
+            validate_disease_exists,
+        )
     )
-
-    def clean_disease_name(self):
-        name = self.cleaned_data['disease_name']
-        if disease_exists(name):
-            return name
-        raise forms.ValidationError(f'Disease {name} does not exists in the database!')

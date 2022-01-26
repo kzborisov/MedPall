@@ -11,12 +11,12 @@ class DiseaseAdmin(admin.ModelAdmin):
 
 
 @admin.register(Symptom)
-class Symptoms(admin.ModelAdmin):
+class SymptomsAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     sortable_by = ('name',)
 
 
 @admin.register(Category)
-class Symptoms(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     sortable_by = ('name',)

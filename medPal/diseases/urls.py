@@ -1,6 +1,5 @@
 from django.urls import path
 
-from medPal.diseases import views
 from medPal.diseases.views import CategoriesView, DiseaseView, CategoryView
 
 urlpatterns = (
