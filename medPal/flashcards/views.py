@@ -5,7 +5,7 @@ from django.views.generic import CreateView, TemplateView, ListView
 from medPal.flashcards.models import Flashcard
 
 
-class FlashcardIndex(LoginRequiredMixin, TemplateView):
+class FlashcardIndexView(LoginRequiredMixin, TemplateView):
     template_name = 'flashcards/flashcards.html'
 
 
@@ -24,11 +24,8 @@ class CreateFlashcardView(LoginRequiredMixin, CreateView):
 class PractiseFlashcardView(LoginRequiredMixin, ListView):
     template_name = 'flashcards/practise-flashcards.html'
     model = Flashcard
-    context_object_name = 'flashcard'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['random_flashcard'] = Flashcard.objects.filter(
-            user_id=self.request.user
-        ).order_by('?').first()
+        context['random_flashcard'] = Flashcard.objects.filter(user_id=self.request.user).order_by('?').first()
         return context

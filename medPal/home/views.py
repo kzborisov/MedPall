@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, FormView
 
@@ -11,13 +11,10 @@ class HomeView(FormView):
     form_class = SearchForm
 
     def form_valid(self, form):
-        disease_name = form.cleaned_data['disease_name']
-        disease = Disease.objects.get(name=disease_name)
-        context = {
-            'disease': disease,
-            'symptoms': ", ".join([str(d) for d in disease.symptoms.all()]),
-        }
-        return render(self.request, 'diseases/disease.html', context)
+        disease = Disease.objects.get(
+            name=form.cleaned_data['disease_name']
+        )
+        return redirect('disease', disease.id)
 
 
 class AboutView(TemplateView):
