@@ -24,12 +24,15 @@ class DiseaseView(LoginRequiredMixin, ListView):
 
 
 class CategoryView(LoginRequiredMixin, ListView):
+    """
+    List all diseases, related to the category.
+    """
     model = Category
     template_name = 'diseases/diseases-by-category.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['category'] = Category.objects.get(pk=self.kwargs['pk'])
-        context['diseases'] = Disease.objects.all(). \
-            filter(category=self.kwargs['pk'])
+        context['category'] = Category.objects. \
+            prefetch_related('disease_set'). \
+            get(pk=self.kwargs['pk'])
         return context

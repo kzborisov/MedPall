@@ -4,6 +4,6 @@ from medPal.flashcards.views import CreateFlashcardView, FlashcardIndexView, Pra
 
 urlpatterns = [
     path('', FlashcardIndexView.as_view(), name='flashcards'),
-    path('create/', CreateFlashcardView.as_view(), name='create flashcard'),
+    path('create-flashcard/', CreateFlashcardView.as_view(), name='create flashcard'),
     path('practise/', PractiseFlashcardView.as_view(), name='practise'),
 ]

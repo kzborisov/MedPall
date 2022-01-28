@@ -16,3 +16,20 @@ The project consists of several applications:
 2. **Flashcards app** - The users can create and learn Flashcards created by themselves to best suit their needs.
 3. **Disease app** - The users can look through and learn the symptoms of a large database of predefined diseases.
 4. **Profiles app** - The users can log in/ sign up for the project.
+
+## Medpall project endpoints
+
+|      **Page**       |                     **Path**                      |
+|:-------------------:|:-------------------------------------------------:|
+|        Home         |              http://localhost:8000/               |
+|        About        |            http://localhost:8000/about            |
+|      Contacts       |          http://localhost:8000/contacts           |
+|       Sign up       |           http://localhost:8000/sign-up           |
+|       Sign in       |           http://localhost:8000/sign-in           |
+|      Sign out       |          http://localhost:8000/sign-out           |
+|     Flashcards      |         http://localhost:8000/flashcards          |
+|  Create flashcards  | http://localhost:8000/flashcards/create-flashcard |
+| Practise flashcards |     http://localhost:8000/flashcards/practise     |
+| Diseases categories |          http://localhost:8000/diseases           |
+| Disease by category |   http://localhost:8000/diseases/category/<pk>    |
+|       Disease       |    http://localhost:8000/diseases/disease/<pk>    |

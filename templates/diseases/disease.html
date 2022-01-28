@@ -11,7 +11,13 @@
         <div class="disease-container">
             <div class="disease-symptoms">
                 <h3>Symptoms</h3>
-                <p>{{ symptoms }}</p>
+                {% for symptom in disease.symptoms.all %}
+                    {% if not forloop.last %}
+                        <span>{{ symptom.name }},</span>
+                    {% else %}
+                        <span>{{ symptom.name }}</span>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="disease-description">
                 <h3>Description</h3>

@@ -11,6 +11,7 @@ class Symptom(models.Model):
 
 
 class Category(models.Model):
+
     CHOICES = (
         ('Integumentary System', 'Integumentary System'),
         ('Skeletal System', 'Skeletal System'),
@@ -29,7 +30,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     name = models.CharField(
-        max_length=255,
+        max_length=max(len(c[0]) for c in CHOICES),
         choices=CHOICES,
         default='integumentary',
         unique=True,

@@ -8,9 +8,9 @@
             <h2>{{ category.name }} Diseases</h2>
         </div>
 
-        {% if diseases %}
+        {% if category.disease_set.all %}
             <div class="grid-container">
-                {% for disease in diseases %}
+                {% for disease in category.disease_set.all %}
                     <a href="{% url 'disease' disease.pk %}" class="disease-btn btn-hover">
                         <div class="card">
                             <div class="card__title">
