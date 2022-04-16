@@ -2,8 +2,6 @@
 ![Coverage](coverage-badge.svg)
 ![Flake8](flake8-badge.svg)
 
-Please visit the site [here]().
-
 # MedPall
 The goal of the **MedPall** project is to aid medical students
 develop their knowledge of diseases and learn to better diagnose patients by creating and learning
