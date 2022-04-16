@@ -1,4 +1,3 @@
-# Python Web Framework - Final Project
 ![Build](https://github.com/kzborisov/MedPall/actions/workflows/ci.yml/badge.svg)
 ![Coverage](coverage-badge.svg)
 ![Flake8](flake8-badge.svg)
